@@ -18,8 +18,6 @@ require.config({
 });
 
 require(['jquery', 'use!backbone'], function($,  Backbone) {
-
-  window.debug = true;
   window.App = {};
   App.ContentEl = $("#content");
   App.FilterEl = $("#filter");
@@ -28,6 +26,7 @@ require(['jquery', 'use!backbone'], function($,  Backbone) {
   require(['bootstrapData'], function(Bootstrap){
     App.Items = Bootstrap.Items;
     App.Categories = Bootstrap.Categories;
+    App.Pages = Bootstrap.Pages;
     App.Routes = {};
     var AppRouter = Backbone.Router.extend({
       routes:{
@@ -35,11 +34,11 @@ require(['jquery', 'use!backbone'], function($,  Backbone) {
         "!index":"index",
         "!index/cat/:id":"index",
         "!item/:id": "item",
+        "!static/:slug":"page",
         "*actions": "index"
       },
       index:function(id){
         var id = id || null;
-        console.log( "cat id", id);
         if (!App.Routes.Index){
           require(["routes/index"], function(Index){
             Index.init( id );
@@ -60,6 +59,17 @@ require(['jquery', 'use!backbone'], function($,  Backbone) {
         }
         else {
           App.Routes.Item(id);
+        }      
+      },
+      page:function(slug){
+        if (!App.Routes.Page){
+          require(["routes/static"], function(Page){
+            Page.init(slug);
+            App.Routes.Page = Page.init;
+          }); 
+        }
+        else {
+          App.Routes.Page(slug);
         }      
       },
       defaultRoute:function(params){
