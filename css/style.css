@@ -1,0 +1,130 @@
+p, a, div, span 
+{
+  color:#000;
+  font-family:Arial;
+  font-size:13px;
+  text-decoration:none;
+}
+
+body
+{
+  margin:0;
+  padding:0;
+}
+
+#main
+{
+  margin:0 auto;
+  width:960px;
+}
+
+#logo 
+{
+  display:block;
+  margin-top:12px;
+  font-family: 'Voltaire', sans-serif;
+  font-size:25px;
+  text-align:center;
+  width:100%;
+}
+
+#content 
+{ 
+  border-bottom:1px solid #000;
+  border-top:1px solid #000;
+  float:left;
+  margin-bottom:12px;
+  padding:12px 0;
+  width:100%;
+}
+
+.portfolioItem 
+{ 
+  display:block;
+  float:left;
+  margin-right:21px;
+  width:31.85%;
+}
+
+
+.portfolioItem:nth-child(3n+0)
+{
+  margin-right:0;
+}
+
+.navList
+{
+  margin:0 auto;
+  padding:0;
+  text-align:center;
+  width:100%;
+}
+
+.navList > li
+{
+  display:inline-block;
+  line-height:40px;
+  list-style:none;
+}
+
+  .navLink { font-size:15px; }
+  .navLink:hover { text-decoration:underline; }
+
+.itemDesc
+{
+  float:right;
+  width:610px;
+}
+  .itemDesc > p { text-align:justify; }
+
+.itemImg
+{
+  float:left;
+  margin:0;
+  padding:21px 21px 21px 0;
+  width:auto;
+}
+
+#filter
+{
+  margin-bottom:12px;
+}
+
+#filter > a 
+{
+  display:inline-block;
+  line-height:30px;
+  width:auto;
+}
+
+#filter > span 
+{
+  display: inline-block;
+  font-weight:bold;
+}
+
+.filterItems { display:inline-block; }
+
+.active { font-weight:bold; }
+
+@media only screen 
+and (max-width : 960px) {
+  
+  #main { padding:0 1%; width:98%; }
+
+  .portfolioItem img
+  {
+    height:auto;
+    width:100%;
+  }
+
+  .portfolioItem 
+  {
+    width:49%;
+    margin-right:2%;
+  }
+
+  .portfolioItem:nth-child(3n+0) { margin-right:2%; }
+
+  .portfolioItem:nth-child(2n+0) { margin-right:0; }  
+}
